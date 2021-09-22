@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme:
+          ThemeData(brightness: Brightness.light, primarySwatch: Colors.amber),
       debugShowCheckedModeBanner: false,
       title: 'Piensa Programación',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Actividad 01'),
+          title: const Text('Actividad 02 - tipos de variables'),
         ),
         body: Center(
           child: Column(
@@ -26,35 +28,28 @@ class MyApp extends StatelessWidget {
 List<Widget> actividad01() {
   // Empieza la actividad
 
-  // TODO:
+  const nombre = 'Alejandro';
+  const edad = 23;
+  const hobbies = ['Gym', 'Leer', 'Correr Karts'];
+  final programa = DateTime.now();
 
-  String nombre = 'Alejandro';
-  int edad = 23;
-  List<String> hobbies = ['Gym', 'Correr carros', 'Programar'];
-  // TODO: Apellido
-  // TODO: Si tienen pareja usar bool
-  // TODO:
-  // TODO: Poner variables
-  // TODO:
+  const retornarNombre = Text('Mi nombre es: $nombre');
+  const retornarEdad = Text('Tengo: $edad años');
+  final retornarHobbies = Text('mis hobbies son: $hobbies');
+  final retornarPrograma = Text('Ejecutado el día: $programa');
 
-  // Termina la actividad
-
-  try {
-    if (nombre is String && edad is int) {
-      return [
-        const SizedBox(height: 400),
-        Text('${nombre}'),
-        Text('mis hobbies son: ${hobbies}')
-      ];
-    } else {
-      return [
-        const SizedBox(height: 400),
-        Text('No es un string'),
-        Text('${hobbies}')
-      ];
-    }
-  } catch (e) {
-    print(e);
-    return [Text(e.toString())];
+  if (nombre is String && edad is int) {
+    return [
+      const SizedBox(height: 300),
+      retornarNombre,
+      retornarEdad,
+      retornarHobbies,
+      retornarPrograma
+    ];
+  } else {
+    return [
+      const SizedBox(height: 400),
+      const Text('hay un problema en el código favor de revisarlo')
+    ];
   }
 }
